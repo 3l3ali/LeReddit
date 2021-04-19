@@ -4,7 +4,7 @@ import { Field, ObjectType } from 'type-graphql';
 // Add @ObjectType() to make the entity a GraphQl type
 @ObjectType()
 @Entity()
-export class Post {
+export class User {
   // Add @Field() to expose field to GraphQl
   @Field()
   @PrimaryKey()
@@ -19,6 +19,9 @@ export class Post {
   updatedAt: Date = new Date();
   
   @Field()
+  @Property({type: 'text', unique: true})
+  username!: string;
+
   @Property({type: 'text'})
-  title!: string;
+  password!: string;
 }
